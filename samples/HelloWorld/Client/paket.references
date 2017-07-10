@@ -4,3 +4,4 @@ Fable.Import.Browser
 Fable.Elmish
 Fable.Elmish.React
 Fable.React
+Fable.Websockets.Client

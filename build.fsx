@@ -13,11 +13,6 @@ let buildDir  = "./build/"
 let deployDir = "./deploy/"
 
 
-// Filesets
-let appReferences  =
-    !! "/**/*.csproj"
-    ++ "/**/*.fsproj"    
-
 
 let projectFolders  =  [ (filesInDirMatchingRecursive "*.fsproj" (directoryInfo "./src"))  
                          (filesInDirMatchingRecursive "*.csproj" (directoryInfo "./src"))
@@ -34,7 +29,7 @@ Target "Clean" (fun _ ->
 )
 
 Target "YarnRestore" (fun _->        
-   ["./";"./samples/HelloWorld/Client/"; "./src/Fable.Websockets.Client/"]
+   ["./";"./samples/HelloWorld/Client/"; "./src/Fable.Websockets.Elmish/"]
    |> Seq.iter (fun dir -> Yarn (fun p ->{ p with Command = Install Standard; WorkingDirectory = dir}))
    |> ignore   
 )

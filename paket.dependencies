@@ -17,3 +17,6 @@ nuget Fable.React
 nuget Suave
 nuget Newtonsoft.Json
 nuget Fable.JsonConverter
+
+nuget Fable.Websockets.Client
+nuget Fable.Websockets.Suave

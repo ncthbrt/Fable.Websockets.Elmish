@@ -2,3 +2,4 @@ FSharp.Core
 Fable.Core
 Fable.Import.Browser
 Fable.Elmish
+Fable.Websockets.Client

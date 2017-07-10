@@ -9,7 +9,6 @@
   <ItemGroup>
     <PackageReference Include="FSharp.NET.Sdk" Version="1.0.*" PrivateAssets="All" />
     <DotNetCliToolReference Include="dotnet-fable" Version="1.1.6" />
-    <ProjectReference Include="../../../src/Fable.Websockets.Client/Fable.Websockets.Client.fsproj" />
     <ProjectReference Include="../../../src/Fable.Websockets.Elmish/Fable.Websockets.Elmish.fsproj" />
   </ItemGroup>
   <Import Project="..\..\..\.paket\Paket.Restore.targets" />
