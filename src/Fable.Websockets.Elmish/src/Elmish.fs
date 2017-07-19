@@ -7,6 +7,9 @@ open FSharp.Collections
 open Fable.Websockets.Client
 open Fable.Websockets.Protocol
 
+
+type WebsocketMsg<'serverMsg,'clientMsg> = SocketHandle<'serverMsg,'clientMsg> * WebsocketEvent<'clientMsg>
+
 module Types =
     type SocketHandle<'serverMsg,'clientMsg> (sink: 'serverMsg -> unit, 
                                               source: IObservable<WebsocketEvent<'clientMsg>>, 
@@ -55,13 +58,16 @@ module Cmd =
     
     [<PassGenerics>]    
     let public ofSocketMessage (socket: SocketHandle<'serverMsg,'clientMsg>) (message:'serverMsg) =             
-        [fun (dispatcher : Elmish.Dispatch<Msg<'serverMsg,'clientMsg,'applicationMsg>>) -> socket.Sink message]
+        [fun _ -> socket.Sink message]
     
-
     [<PassGenerics>]
     let public tryOpenSocket address =            
         [fun (dispatcher : Elmish.Dispatch<Msg<'serverMsg,'clientMsg,'applicationMsg>>) -> SocketHandle.Create address dispatcher]
-
     [<PassGenerics>]    
     let public closeSocket (socket: SocketHandle<'serverMsg,'clientMsg>) code reason =            
         [fun (dispatcher : Elmish.Dispatch<Msg<'serverMsg,'clientMsg,'applicationMsg>>) -> do socket.CloseHandle code reason] 
+
+
+module Program =
+    let withSockets (socketUpdate :  WebsocketMsg<'serverMsg,'clientMsg>,-> 'model -> ('model * Cmd<'msg>))  (program : Program<'a,'model,'msg,'view>) =           
+        0
