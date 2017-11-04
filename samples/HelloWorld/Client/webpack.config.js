@@ -32,7 +32,7 @@ module.exports = {
     filename: "bundle.js"
   },
   resolve: {
-    modules: [ resolve("../../node_modules/")]
+    modules: [ resolve("../../../node_modules/")]
   },
   devServer: {
     proxy: {
