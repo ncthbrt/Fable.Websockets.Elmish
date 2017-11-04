@@ -56,8 +56,8 @@ Target "Build" (fun _ ->
 
 Target "RunElmishSample" (fun _ ->
     // Start client
-    [ async { return (DotNetCli.RunCommand (fun p -> {p with WorkingDir = "./samples/HelloWorld/Server/"}) "watch run") }
-      async { return (DotNetCli.RunCommand (fun p -> {p with WorkingDir = "./samples/HelloWorld/Client/"}) "fable yarn-run start-sample") }
+    [ (*async { return (DotNetCli.RunCommand (fun p -> {p with WorkingDir = "./samples/HelloWorld/Server/"}) "watch run") } *)
+      async { return (DotNetCli.RunCommand (fun p -> {p with WorkingDir = "./samples/HelloWorld/Client/"}) "fable webpack-dev-server") }
     ] |> Async.Parallel |> Async.RunSynchronously |> ignore
 )
 
@@ -88,7 +88,7 @@ Target "Package" (fun _ ->
 // Build order
 "Meta" ==> "Clean" ==> "Restore" ==> "YarnRestore" ==> "Build" ==> "Package"
 
-"Build" ==> "RunElmishSample"
+// "Build" ==> "RunElmishSample"
 
 // start build
 RunTargetOrDefault "Build"
