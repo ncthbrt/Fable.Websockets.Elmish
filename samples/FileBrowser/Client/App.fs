@@ -1,8 +1,8 @@
-module HelloWorld.Client
+module FileBrowser.Client
 
 open System
 
-open HelloWorld.Protocol
+open FileBrowser.Protocol
 
 open Fable.Core
 open Fable.Core.JsInterop

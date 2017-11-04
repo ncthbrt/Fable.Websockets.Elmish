@@ -35,7 +35,7 @@ Target "Clean" (fun _ ->
 )
 
 Target "YarnRestore" (fun _->        
-   ["./";"./samples/HelloWorld/Client/"; "./src/Fable.Websockets.Elmish/"]
+   ["./";"./samples/FileBrowser/Client/"; "./src/Fable.Websockets.Elmish/"]
    |> Seq.iter (fun dir -> Yarn (fun p ->{ p with Command = Install Standard; WorkingDirectory = dir}))
    |> ignore   
 )
@@ -56,8 +56,8 @@ Target "Build" (fun _ ->
 
 Target "RunElmishSample" (fun _ ->
     // Start client
-    [ async { return (DotNetCli.RunCommand (fun p -> {p with WorkingDir = "./samples/HelloWorld/Server/"}) "watch run") }
-      async { return (DotNetCli.RunCommand (fun p -> {p with WorkingDir = "./samples/HelloWorld/Client/"}) "fable webpack-dev-server") }
+    [ async { return (DotNetCli.RunCommand (fun p -> {p with WorkingDir = "./samples/FileBrowser/Server/"}) "watch run") }
+      async { return (DotNetCli.RunCommand (fun p -> {p with WorkingDir = "./samples/FileBrowser/Client/"}) "fable webpack-dev-server") }
     ] |> Async.Parallel |> Async.RunSynchronously |> ignore
 )
 

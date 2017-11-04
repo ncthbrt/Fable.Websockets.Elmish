@@ -1,8 +1,8 @@
-module HelloWorld.Server.FileHelpers
+module FileBrowser.Server.FileHelpers
 
 open System
 open System.IO
-open HelloWorld.Protocol
+open FileBrowser.Protocol
 
 /// Custom operator for combining paths
 let ( +/ ) path1 path2 = Path.Combine(path1, path2)
