@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "start-sample": "webpack-dev-server"
+  }
+}

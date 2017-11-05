@@ -1,4 +1,4 @@
-﻿module HelloWorld.Server.App
+﻿module FileBrowser.Server.App
 
 
 open System
@@ -18,10 +18,10 @@ open Fable.Websockets.Suave
 open Fable.Websockets.Observables
 open Fable.Websockets.Protocol
 
-open HelloWorld.Protocol
-open HelloWorld.Server.FileHelpers
+open FileBrowser.Protocol
+open FileBrowser.Server.FileHelpers
 
-type ServerState ={ currentDirectory:string; user: HelloWorld.Protocol.User option }
+type ServerState ={ currentDirectory:string; user: FileBrowser.Protocol.User option }
 
 type Event<'serverProtocol>  =
     | WebsocketEvent of WebsocketEvent<'serverProtocol>        
@@ -94,7 +94,7 @@ let effects socketEventSink dispatcher closeHandle = function
                     let path = state.currentDirectory +/ file
                     if File.Exists path then 
                         let bytes = File.ReadAllBytes path 
-                        let fileContents = FileContents { name = path; contents = bytes |> UTF8.toString }
+                        let fileContents = FileContents { name = path; contents = bytes |> System.Text.Encoding.UTF8.GetString }
                         fileContents |> socketEventSink
                     else 
                         NotFound (File path) |> socketEventSink                            

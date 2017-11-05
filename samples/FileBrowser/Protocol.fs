@@ -1,4 +1,4 @@
-module HelloWorld.Protocol
+module FileBrowser.Protocol
 
 type User = { email:string; }
 

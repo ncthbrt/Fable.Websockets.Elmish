@@ -1,11 +1,13 @@
 source https://nuget.org/api/v2
-
-nuget FAKE
+storage:none
 
 nuget FSharp.Core
 
 # Keep this version synced with dotnet-fable in .fsproj
-nuget Fable.Core 1.1.6
+nuget Fable.Core
+
+clitool dotnet-fable
+clitool Microsoft.DotNet.Watcher.Tools
 
 # client packages
 nuget Fable.Import.Browser
@@ -20,3 +22,7 @@ nuget Fable.JsonConverter
 
 nuget Fable.Websockets.Client
 nuget Fable.Websockets.Suave
+
+group build 
+    source https://nuget.org/api/v2
+    nuget FAKE

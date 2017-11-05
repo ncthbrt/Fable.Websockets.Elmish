@@ -1,8 +1,8 @@
-module HelloWorld.Client
+module FileBrowser.Client
 
 open System
 
-open HelloWorld.Protocol
+open FileBrowser.Protocol
 
 open Fable.Core
 open Fable.Core.JsInterop
@@ -87,7 +87,7 @@ let emailView (email:string) dispatch =
     R.div[] [
         R.h1 [] [R.str "Enter your email"]
         R.br []
-        R.input [Value (!^email); OnChange (fun e-> (dispatch<<ApplicationMsg<<SetEmailText<<string) e.target?value)]
+        R.input [Value email; OnChange (fun e-> (dispatch<<ApplicationMsg<<SetEmailText<<string) e.target?value)]
         R.input [Type "submit"; OnClick (fun e-> (dispatch<<ApplicationMsg<<SubmitUserEmail<<string) email)]
     ]
 
@@ -130,6 +130,6 @@ let view model dispatch =
     
 
 Program.mkProgram initialState update view
-|> Program.withReact "root"
+|> Program.withReact "elmish-app"
 |> Program.withConsoleTrace
 |> Program.run

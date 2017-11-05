@@ -12,4 +12,4 @@ if [[ "$OS" != "Windows_NT" ]]; then
 fi
 
 $mono .paket/paket.exe restore || exit $?
-$mono packages/FAKE/tools/FAKE.exe "$@" "${fsiargs[@]}" build.fsx
+$mono packages/build/FAKE/tools/FAKE.exe "$@" "${fsiargs[@]}" build.fsx

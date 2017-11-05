@@ -7,6 +7,6 @@
 <RepositoryUrl>https://github.com/ncthbrt/Fable.Websockets.Elmish</RepositoryUrl>
 <PackageTags>fable;fsharp;elmish;websockets;observables</PackageTags>
 <Authors>Nick Cuthbert</Authors>
-<Version>0.1.0</Version>
+<Version>0.1.1</Version>
 </PropertyGroup>
 </Project>
