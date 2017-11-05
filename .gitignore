@@ -17,7 +17,7 @@ node_modules/
 *.exe.mdb
 
 # Build results
-
+build/
 [Dd]ebug/
 [Rr]elease/
 x64/
@@ -195,3 +195,5 @@ docs/tools/FSharp.Formatting.svclog
 .ionide.debug
 *.bak
 project.lock.json
+build/Fable.Websockets.Elmish.0.1.1.nupkg
+build/Fable.Websockets.Elmish.0.1.1.nupkg

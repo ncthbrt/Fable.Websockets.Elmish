@@ -1,6 +1,5 @@
 source https://nuget.org/api/v2
-
-nuget FAKE
+storage:none
 
 nuget FSharp.Core
 
@@ -23,3 +22,7 @@ nuget Fable.JsonConverter
 
 nuget Fable.Websockets.Client
 nuget Fable.Websockets.Suave
+
+group build 
+    source https://nuget.org/api/v2
+    nuget FAKE
